@@ -151,7 +151,7 @@ def main(arguments=None):
            'output_dir': None,
            'no_upload': False,
            'image_host': None,
-           'browser': False,
+           'browser': True,
            'screenshot_amount': DEFAULT_SCREENSHOT_AMOUNT,
            'thumbnail_size': None,
            'login': None,
