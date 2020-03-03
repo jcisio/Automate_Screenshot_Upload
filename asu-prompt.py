@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import os
@@ -6,9 +6,6 @@ from os import path
 
 from asu import VALID_INPUT_FILE_EXTENSIONS
 from asu.utils import run_command, quote_path
-
-if sys.version_info[0] < 3:
-    input = raw_input
 
 asu_exe = path.sep.join((path.dirname(path.abspath(__file__)), "asu.py"))
 
@@ -60,7 +57,7 @@ else:
 if 'win32' in sys.platform:
     input_files = [quote_path(file) for file in input_files]
 
-ret, _, _ = run_command('python', *[asu_exe] + sys.argv[1:] + input_files,
+ret, _, _ = run_command('python3', *[asu_exe] + sys.argv[1:] + input_files,
                         stdout=None, stderr=None)
 
 sys.exit(ret)
