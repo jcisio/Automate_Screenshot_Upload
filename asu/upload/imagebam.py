@@ -1,7 +1,7 @@
 import re
 
 from asu.upload import BaseHost, UploadRange, UploadedFile
-from asu.modules import requests
+import requests
 
 
 class Host(BaseHost):
