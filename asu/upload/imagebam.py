@@ -79,6 +79,6 @@ class Host(BaseHost):
         """return a list of tuples, each tuple containing the image page link
            and the direct link to the thumbnail file"""
 
-        regex = (r'value=\'\[URL=(http://[^\]]*)\]\[IMG\](http://[^\[]*)'
+        regex = (r'value=\'\[URL=(https?://[^\]]*)\]\[IMG\](https?://[^\[]*)'
                  r'\[/IMG\]\[/URL\]')
         return re.findall(regex, html)
