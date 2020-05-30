@@ -1,7 +1,9 @@
 import re
 
 from asu.upload import BaseHost, UploadRange, UploadedFile
+from pathlib import Path
 import requests
+import subprocess
 
 
 class Host(BaseHost):
@@ -44,6 +46,9 @@ class Host(BaseHost):
         try:  # finally close the files that were opened
             for count, f in enumerate(files, 1):
                 upload_name = 'image{:02}.png'.format(count)
+                # Imagebam supports upload file size up to 10 MB. Resize it down to HD usually makes it well under that.
+                if (Path(f).stat().st_size > 10000000):
+                    subprocess.run(['mogrify', '-thumbnail', '1920x1920', f])
 
                 if isinstance(f, str):
                     open_file = open(f, 'rb')
